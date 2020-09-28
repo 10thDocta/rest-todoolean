@@ -14,7 +14,7 @@ ul {
   margin: 50px auto;
 }
 
-#add {
+#add-item {
   padding: 5px;
 }
 
@@ -26,12 +26,24 @@ ul li {
   margin: 10px 0;
 }
 
+ul li .fa-edit {
+  margin-right: 5px;
+  font-size: 14px;
+  vertical-align: text-top;
+  cursor: pointer;
+}
+
 ul li input {
   border: none;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 ul li input[disabled="disabled"] {
   background-color: white;
+}
+
+ul li .fa-times-circle {
+  color: #920000;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

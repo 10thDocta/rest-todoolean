@@ -18,13 +18,13 @@
 <body>
     <div class="container">
         <h1>TO DO LIST</h1>
-        <input type="text" name="" id="add" placeholder="Aggiungi elemento">
+        <input type="text" name="" id="add-item" placeholder="Aggiungi elemento">
         <ul id="list"></ul>
     </div>
 
 
     <script id="entry-template" type="text/x-handlebars-template">
-        <li id="{{id}}"><input type="text" name="" value="{{text}}" disabled="disabled"></li>
+        <li id="{{id}}"><i class="far fa-edit"></i><input type="text" name="" value="{{text}}" disabled="disabled"><i id="delete-btn" class="far fa-times-circle"></i></li>
       </script>
 
 

@@ -2,10 +2,10 @@
 
 var ajax = {
 
-    delete: function () {
+    delete: function (id) {
         $.ajax(
             {
-                url: "http://157.230.17.132:3030/todos",
+                url: "http://157.230.17.132:3030/todos/" + id,
                 method: "DELETE",
             }
         );
@@ -42,13 +42,16 @@ var ajax = {
         );
     },
 
-    post: function (id = "") {
+    post: function (string) {
         $.ajax(
             {
-                url: "http://157.230.17.132:3030/todos/" + id,
+                url: "http://157.230.17.132:3030/todos/",
                 method: "POST",
+                data: {
+                    text: string
+                },
                 success: function (data) {
-
+                    render([data]);
                 },
                 error: function (richiesta, stato, errori) {
                     alert("E' avvenuto un errore.", errori);
@@ -77,8 +80,30 @@ function render(data) {
 
 $(document).ready(function () {
 
-
     ajax.get();
+
+    // per aggoungere un elemento alla lista
+    $("#add-item").keyup(function (e) {
+
+        if (e.which == 13) {
+
+            var input = $(this).val();
+
+            if (input != "") {
+
+                ajax.post(input);
+            }
+        }
+
+    });
+
+    // per eliminare un elemento della lista
+    $("#list").on("click", "#delete-btn", function () {
+
+        var idItem = $(this).parent().attr("id");
+        $(this).parent().remove();
+        ajax.delete(idItem);
+    });
 
 
 });
