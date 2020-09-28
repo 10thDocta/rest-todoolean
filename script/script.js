@@ -104,7 +104,7 @@ $(document).ready(function () {
         var idItem = $(this).parent().attr("id");
         var disable = $(this).parent().find("input");
 
-        disable.prop("disabled", "");
+        disable.prop("disabled", false);
 
         $(this).parent().find("input").keyup(function (e) {
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 var input = $(this).val();
                 if (input != "" && input != currentText) {
                     ajax.patch(idItem, input);
-                    disable.prop("disabled", "disabled");
+                    disable.prop("disabled", true);
                 }
             }
         });
