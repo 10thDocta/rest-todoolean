@@ -27,13 +27,16 @@ var ajax = {
         );
     },
 
-    patch: function (id) {
+    patch: function (id, string) {
         $.ajax(
             {
                 url: "http://157.230.17.132:3030/todos/" + id,
                 method: "PATCH",
+                data: {
+                    text: string
+                },
                 success: function (data) {
-
+                    console.log("Modificato" + data);
                 },
                 error: function (richiesta, stato, errori) {
                     alert("E' avvenuto un errore.", errori);
@@ -65,7 +68,6 @@ var ajax = {
 
 
 function render(data) {
-
     var source = document.getElementById("entry-template").innerHTML;
     var template = Handlebars.compile(source);
 
@@ -77,7 +79,7 @@ function render(data) {
 
 
 
-
+/* ----------------- DOCUMENT READY ---------------- */
 $(document).ready(function () {
 
     ajax.get();
@@ -86,14 +88,35 @@ $(document).ready(function () {
     $("#add-item").keyup(function (e) {
 
         if (e.which == 13) {
-
             var input = $(this).val();
-
             if (input != "") {
-
                 ajax.post(input);
+                $(this).val("");
             }
         }
+    });
+
+
+    // per modificare un elemento della lista
+    $("#list").on("click", "#edit-btn", function () {
+
+        var currentText = $(this).val();
+        var idItem = $(this).parent().attr("id");
+        var disable = $(this).parent().find("input");
+
+        disable.prop("disabled", "");
+
+        $(this).parent().find("input").keyup(function (e) {
+
+            if (e.which == 13) {
+                var input = $(this).val();
+                if (input != "" && input != currentText) {
+                    ajax.patch(idItem, input);
+                    disable.prop("disabled", "disabled");
+                }
+            }
+        });
+
 
     });
 

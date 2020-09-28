@@ -33,16 +33,22 @@ ul {
       cursor: pointer;
     }
 
-    input {
-      border: none;
+    input,
+    input[disabled="disabled"] {
+      padding: 3px 3px 3px 6px;
+      //   border: 1px solid red;
+      border-radius: 4px;
       font-size: 18px;
     }
 
     input[disabled="disabled"] {
+      padding: 3px;
+      border: none;
       background-color: white;
     }
 
     .fa-times-circle {
+      margin-left: 5px;
       color: rgb(146, 0, 0);
       cursor: pointer;
     }

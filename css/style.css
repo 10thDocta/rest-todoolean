@@ -33,16 +33,21 @@ ul li .fa-edit {
   cursor: pointer;
 }
 
-ul li input {
-  border: none;
+ul li input,
+ul li input[disabled="disabled"] {
+  padding: 3px 3px 3px 6px;
+  border-radius: 4px;
   font-size: 18px;
 }
 
 ul li input[disabled="disabled"] {
+  padding: 3px;
+  border: none;
   background-color: white;
 }
 
 ul li .fa-times-circle {
+  margin-left: 5px;
   color: #920000;
   cursor: pointer;
 }
