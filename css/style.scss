@@ -34,14 +34,16 @@ ul {
     }
 
     input,
-    input[disabled="disabled"] {
+    input[disabled="disabled"],
+    input:disabled {
       padding: 3px 3px 3px 6px;
       //   border: 1px solid red;
       border-radius: 4px;
       font-size: 18px;
     }
 
-    input[disabled="disabled"] {
+    input[disabled="disabled"],
+    input:disabled {
       padding: 3px;
       border: none;
       background-color: white;

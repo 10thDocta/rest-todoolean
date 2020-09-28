@@ -34,13 +34,15 @@ ul li .fa-edit {
 }
 
 ul li input,
-ul li input[disabled="disabled"] {
+ul li input[disabled="disabled"],
+ul li input:disabled {
   padding: 3px 3px 3px 6px;
   border-radius: 4px;
   font-size: 18px;
 }
 
-ul li input[disabled="disabled"] {
+ul li input[disabled="disabled"],
+ul li input:disabled {
   padding: 3px;
   border: none;
   background-color: white;
