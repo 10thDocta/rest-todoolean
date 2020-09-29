@@ -100,6 +100,11 @@ $(document).ready(function () {
     // per modificare un elemento della lista
     $("#list").on("click", "#edit-btn", function () {
 
+        if ($(this).parent().find("input").prop("disabled") == false) {
+            $(this).parent().find("input").prop("disabled", true);
+            return;
+        }
+
         var currentText = $(this).val();
         var idItem = $(this).parent().attr("id");
         var disable = $(this).parent().find("input");
